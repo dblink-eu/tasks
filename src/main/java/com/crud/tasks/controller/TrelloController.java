@@ -23,24 +23,25 @@ public class TrelloController {
     @RequestMapping(method = RequestMethod.GET, value = "getTrelloBoards")
     public void getTrelloBoards() {
 
-//        List<TrelloBoardDto> trelloBoards = trelloClient.getTrelloBoards();
-//        trelloBoards.stream()
-//                .filter(o -> o.getName()!=null)
-//                .filter(o -> o.getId()!=null)
-//                .filter(o -> o.getName().equals("Kodilla")).forEach(trelloBoardDto -> System.out.println(trelloBoardDto.getId() + " " + trelloBoardDto.getName()));
-
-         //GET request
+        System.out.println("Test Grzegorz :) ");
         List<TrelloBoardDto> trelloBoards = trelloClient.getTrelloBoards();
+        trelloBoards.stream()
+                .filter(o -> o.getName()!=null)
+                .filter(o -> o.getId()!=null)
+                .filter(o -> o.getName().equals("Kodilla")).forEach(trelloBoardDto -> System.out.println(trelloBoardDto.getId() + " " + trelloBoardDto.getName()));
 
-        trelloBoards.forEach(trelloBoardDto -> {
 
-            System.out.println(trelloBoardDto.getName() + " - " + trelloBoardDto.getId());
-
-            System.out.println("This board contains lists: ");
-
-            trelloBoardDto.getLists().forEach(trelloList ->
-                    System.out.println(trelloList.getName() + " - " + trelloList.getId() + " - " + trelloList.isClosed()));
-        });
+//        List<TrelloBoardDto> trelloBoards = trelloClient.getTrelloBoards();
+//
+//        trelloBoards.forEach(trelloBoardDto -> {
+//
+//            System.out.println(trelloBoardDto.getName() + " - " + trelloBoardDto.getId());
+//
+//            System.out.println("This board contains lists: ");
+//
+//            trelloBoardDto.getLists().forEach(trelloList ->
+//                    System.out.println(trelloList.getName() + " - " + trelloList.getId() + " - " + trelloList.isClosed()));
+//        });
     }
 
     @RequestMapping(method = RequestMethod.POST, value = "createTrelloCard")
